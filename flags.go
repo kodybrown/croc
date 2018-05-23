@@ -11,7 +11,6 @@ import (
 	"github.com/urfave/cli"
 	"github.com/yudai/hcl"
 
-	"github.com/yudai/gotty/pkg/homedir"
 	"gopkg.in/yaml.v2"
 )
 
@@ -103,7 +102,7 @@ func ApplyFlags(
 }
 
 func ApplyConfigFile(filePath string, options ...interface{}) error {
-	filePath = homedir.Expand(filePath)
+	filePath = Expand(filePath)
 	if _, err := os.Stat(filePath); os.IsNotExist(err) {
 		return err
 	}
@@ -125,7 +124,7 @@ func ApplyConfigFile(filePath string, options ...interface{}) error {
 }
 
 func ApplyConfigFileYaml(filePath string, options ...interface{}) error {
-	filePath = homedir.Expand(filePath)
+	filePath = Expand(filePath)
 	if _, err := os.Stat(filePath); os.IsNotExist(err) {
 		return err
 	}
@@ -148,7 +147,7 @@ func ApplyConfigFileYaml(filePath string, options ...interface{}) error {
 }
 
 func SaveConfigFileYaml(filePath string, options ...interface{}) error {
-	filePath = homedir.Expand(filePath)
+	filePath = Expand(filePath)
 	if _, err := os.Stat(filePath); os.IsNotExist(err) {
 		return err
 	}

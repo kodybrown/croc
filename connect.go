@@ -288,8 +288,7 @@ func (c *Connection) runClient(serverName string) error {
 	wg.Add(c.NumberOfConnections)
 
 	if !c.Debug {
-		c.bar = progressbar.New(c.File.Size)
-		c.bar.SetWriter(os.Stderr)
+		c.bar = progressbar.NewOptions(c.File.Size, progressbar.OptionSetWriter(os.Stderr))
 	}
 	type responsesStruct struct {
 		gotTimeout         bool
@@ -475,7 +474,7 @@ func (c *Connection) runClient(serverName string) error {
 						responses.startTime = time.Now()
 						responses.Unlock()
 						if !c.Debug && id == 0 {
-							c.bar.SetMax(c.File.Size)
+							c.bar = progressbar.NewOptions(c.File.Size, progressbar.OptionSetWriter(os.Stderr))
 							c.bar.Reset()
 						} else {
 							// try to let the first thread start first

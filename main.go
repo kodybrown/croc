@@ -7,7 +7,6 @@ import (
 	"strings"
 
 	"github.com/urfave/cli"
-	"github.com/yudai/gotty/pkg/homedir"
 )
 
 const BUFFERSIZE = 1024
@@ -68,7 +67,7 @@ func main() {
 	app.Action = func(c *cli.Context) {
 
 		configFile := c.String("config")
-		_, err := os.Stat(homedir.Expand(configFile))
+		_, err := os.Stat(Expand(configFile))
 		if configFile != "~/.croc" || !os.IsNotExist(err) {
 			if err := ApplyConfigFileYaml(configFile, appOptions); err != nil {
 				exit(err, 2)
