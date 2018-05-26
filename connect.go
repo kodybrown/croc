@@ -19,7 +19,7 @@ import (
 
 	"github.com/dustin/go-humanize"
 	"github.com/schollz/peerdiscovery"
-	"github.com/schollz/progressbar"
+	"github.com/schollz/progressbar/v2"
 	tarinator "github.com/schollz/tarinator-go"
 
 	log "github.com/cihub/seelog"

@@ -9,7 +9,7 @@ require (
 	github.com/pkg/errors v0.8.0
 	github.com/schollz/mnemonicode v1.0.0
 	github.com/schollz/peerdiscovery v1.2.0
-	github.com/schollz/progressbar v2.1.0
+	github.com/schollz/progressbar/v2 v2.1.1
 	github.com/schollz/tarinator-go v0.3.3
 	github.com/sirupsen/logrus v1.0.5
 	github.com/urfave/cli v1.20.0
